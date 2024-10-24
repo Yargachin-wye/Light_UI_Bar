@@ -7,9 +7,9 @@ namespace BarShadersUI.Script
     public class BarControllerUI : MonoBehaviour
     {
         [SerializeField, Range(0, 1f)] private float FilledTest = 0;
-        [SerializeField] private Color color;
-        [SerializeField] private Color colorBG;
-        [SerializeField] private Color colorFilled;
+        [SerializeField] private Color frameColor;
+        [SerializeField] private Color BGColor;
+        [SerializeField] private Color filledColor;
         [SerializeField, Range(0, 1f)] private float divisionSize;
         [SerializeField, Range(0, 100)] private int divisionCount;
         [SerializeField, Range(-30, 30)] private float tiltAngle;
@@ -37,11 +37,14 @@ namespace BarShadersUI.Script
 
         private void Init()
         {
-            barMaterialUI.SetValues(color, divisionSize, divisionCount, tiltAngle, margin);
-            barBgMaterialUI.SetValues(colorBG, tiltAngle, margin);
-            barFilledMaterialUI.SetValues(colorFilled, tiltAngle, margin);
+            barMaterialUI.SetValues(frameColor, divisionSize, divisionCount, tiltAngle, margin);
+            barBgMaterialUI.SetValues(BGColor, tiltAngle, margin);
+            barFilledMaterialUI.SetValues(filledColor, tiltAngle, margin);
         }
-
+        /// <summary>
+        /// Устанавливает уровень заполнения изображения на основе переданного значения.
+        /// </summary>
+        /// <param name="val">Значение, определяющее уровень заполнения изображения. Должно быть в диапазоне от 0 до 1.</param>
         public void SetFilled(float val)
         {
             float divSize = (divisionSize * 0.001f);

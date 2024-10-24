@@ -6,21 +6,28 @@ namespace BarShadersUI.Script
 {
     public class BarControllerInvertUI : MonoBehaviour
     {
-        [SerializeField, Range(0, 1f)] private float FilledTest = 0;
-        [SerializeField] private Color color;
-        [SerializeField] private Color colorBG;
-        [SerializeField,Range(0, 1f)] private float divisionSize;
+        [Tooltip("Для пред просмотра")] [SerializeField, Range(0, 1f)]
+        private float FilledTest = 0;
+
+        [SerializeField] private Color fillerColor;
+        [SerializeField] private Color BGcolor;
+        [SerializeField, Range(0, 1f)] private float divisionSize;
         [SerializeField, Range(0, 100)] private int divisionCount;
-        [SerializeField, Range(-30, 30)] private float tiltAngle;
-        [SerializeField, Range(0, 0.5f)] private float margin;
+
+        [Tooltip("Угол наклона делений")] [SerializeField, Range(-30, 30)]
+        private float tiltAngle;
+
+        [Tooltip("Отступы по краям")] [SerializeField, Range(0, 0.5f)]
+        private float margin;
+
         [SerializeField] private Image filledImage;
-        [FormerlySerializedAs("barMaterialUIController")] [SerializeField] private BarMaterialUI barMaterialUI;
-        [FormerlySerializedAs("barBgMaterialUIController")] [SerializeField] private BarMaterialUI barBgMaterialUI;
+        [SerializeField] private BarMaterialUI barMaterialUI;
+        [SerializeField] private BarMaterialUI barBgMaterialUI;
 
         private void OnValidate()
         {
             Validate();
-            SetFilled(FilledTest);
+            SetFilled(FilledTest); //for preview
         }
 
         [ContextMenu("<-> Validate")]
@@ -33,10 +40,14 @@ namespace BarShadersUI.Script
 
         private void Init()
         {
-            barMaterialUI.SetValues(color, divisionSize, divisionCount, tiltAngle, margin);
-            barBgMaterialUI.SetValues(colorBG, divisionSize, divisionCount, tiltAngle, margin);
+            barMaterialUI.SetValues(fillerColor, divisionSize, divisionCount, tiltAngle, margin);
+            barBgMaterialUI.SetValues(BGcolor, divisionSize, divisionCount, tiltAngle, margin);
         }
 
+        /// <summary>
+        /// Устанавливает уровень заполнения изображения на основе переданного значения.
+        /// </summary>
+        /// <param name="val">Значение, определяющее уровень заполнения изображения. Должно быть в диапазоне от 0 до 1.</param>
         public void SetFilled(float val)
         {
             float rad = tiltAngle * Mathf.Deg2Rad;

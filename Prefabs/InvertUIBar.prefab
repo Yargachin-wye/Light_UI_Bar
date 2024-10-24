@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FilledTest: 0.625
-  color: {r: 1, g: 1, b: 1, a: 0.69411767}
-  colorBG: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
+  fillerColor: {r: 1, g: 0.505315, b: 0, a: 1}
+  BGcolor: {r: 1, g: 0.6933962, b: 0.6933962, a: 1}
   divisionSize: 0.339
   divisionCount: 8
   tiltAngle: 2.4
