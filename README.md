@@ -43,5 +43,6 @@ public class BarsTest : MonoBehaviour
 ### Пример реализации:
 ![img.png](img3.png)
 ![img.png](img4.png)
-### Тест 1024 бара изменяются одновременно:
+### Тест 1024 бара изменяются одновременно(120fps в неактивном состоянии):
+
 ![img.gif](img5.gif)
