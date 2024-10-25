@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -23,6 +24,11 @@ namespace BarShadersUI.Script
         [SerializeField] private Image filledImage;
         [SerializeField] private BarMaterialUI barMaterialUI;
         [SerializeField] private BarMaterialUI barBgMaterialUI;
+
+        private void Awake()
+        {
+            Init();
+        }
 
         private void OnValidate()
         {
@@ -50,7 +56,6 @@ namespace BarShadersUI.Script
         /// <param name="val">Значение, определяющее уровень заполнения изображения. Должно быть в диапазоне от 0 до 1.</param>
         public void SetFilled(float val)
         {
-            float rad = tiltAngle * Mathf.Deg2Rad;
             float divSize = (divisionSize * 0.001f);
             filledImage.fillAmount = margin + divSize + val * (1 - (margin + divSize) * 2);
         }

@@ -20,6 +20,7 @@ namespace BarShadersUI.Script
         [SerializeField] private BarBgMaterialUI barFilledMaterialUI;
         [SerializeField] private BarMaterialUI barMaterialUI;
 
+
         private void OnValidate()
         {
             Validate();
@@ -41,6 +42,7 @@ namespace BarShadersUI.Script
             barBgMaterialUI.SetValues(BGColor, tiltAngle, margin);
             barFilledMaterialUI.SetValues(filledColor, tiltAngle, margin);
         }
+
         /// <summary>
         /// Устанавливает уровень заполнения изображения на основе переданного значения.
         /// </summary>
