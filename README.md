@@ -39,6 +39,7 @@ public class BarsTest : MonoBehaviour
 ```
 Реализованые префабы не содержат текста, его нужно отображать отдельно.
 ### Демо:
-![img.png](img1.png)
-
 ![img.gif](img2.gif)
+### Пример реализации:
+![img.png](img3.png)
+![img.png](img4.png)
